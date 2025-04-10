@@ -5,24 +5,13 @@ using Zenject;
 
 namespace BuilderGame.BuildSystem
 {
-    public class BuildGridView : MonoBehaviour
+    public class GroundGridView : BaseGridView
     {
-        [SerializeField] private BuildGrid _buildGrid;
-
-        private GridTileView[,] _planes;
-
-        private GridTileViewFactory _factory;
-
-        [Inject]
-        private void Constructor(GridTileViewFactory factory)
-        {
-            _factory = factory;
-        }
+        [SerializeField] private GroundGrid _buildGrid;
 
         private void Start()
         {
             _planes = new GridTileView[_buildGrid.XNumberCells, _buildGrid.ZNumberCells];
-
 
             for(int x = 0; x < _buildGrid.XSize; x++)
             {

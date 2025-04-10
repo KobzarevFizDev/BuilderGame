@@ -9,7 +9,7 @@ namespace BuilderGame.BuildSystem
     {
         public override void InstallBindings()
         {
-            BuildGrid[] grids = FindObjectsByType<BuildGrid>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            GroundGrid[] grids = FindObjectsByType<GroundGrid>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
             Container
                 .Bind<BuildGridsRepository>()

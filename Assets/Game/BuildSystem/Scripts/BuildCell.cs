@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace BuilderGame.BuildSystem
 {
+    public enum CellType { OnGround, OnWall }
+
     public class BuildCell 
     {
         public int X { private set; get; }
@@ -14,15 +16,16 @@ namespace BuilderGame.BuildSystem
         public float Size { private set; get; }
 
         private Plane _plane;
-        public BuildCell(int x, int y, int z, Vector3 pos, float size)
+        public BuildCell(Vector3Int id, Vector3 pos, Vector3 normal, float size)
         {
-            X = x;
-            Y = y;
-            Z = z;
+            X = id.x;
+            Y = id.y;
+            Z = id.z;
             CenterPos = pos;
             Size = size;
 
-            _plane = new Plane(Vector3.up, pos - Vector3.up * Size * 0.5f);
+            _plane = new Plane(normal, pos - 0.5f * normal * Size);
+            //_plane = new Plane(Vector3.up, pos - Vector3.up * Size * 0.5f);
         }
 
         public bool IsIntersectsWithRay(Ray ray, out Vector3 point)
