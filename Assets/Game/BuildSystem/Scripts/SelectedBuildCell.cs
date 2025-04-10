@@ -64,25 +64,6 @@ namespace BuilderGame.BuildSystem
             {
                 _marker.transform.position = cell.CenterPos;
             }
-
-            
-            //Vector2 center = new Vector2(Screen.width / 2, Screen.height / 2);
-            //Ray ray = _playerCamera.Camera.ScreenPointToRay(center);
-            //int layerMask = 1 << LayerMask.NameToLayer("BuildGrid");
-            //if (Physics.Raycast(ray, out RaycastHit hit, 10f, layerMask, QueryTriggerInteraction.Ignore))
-            //{
-            //    DebugExtension.DebugPoint(hit.point);
-            //    var buildArea = hit.transform.gameObject.GetComponent<BuildGrid>();
-            //    BuildCell cell = buildArea.GetCellByCameraDirection(ray);
-            //    if (cell != null)
-            //    {
-            //        _marker.transform.position = cell.CenterPos;
-            //    }
-            //}
-            //else
-            //{
-            //    _buildGrids.GetCellByCameraDirection(ray);
-            //}
         }
 
         private bool CheckBuildCell(out BuildCell cell)
@@ -94,8 +75,8 @@ namespace BuilderGame.BuildSystem
             if (Physics.Raycast(ray, out RaycastHit hit, 10f, layerMask, QueryTriggerInteraction.Ignore))
             {
                 DebugExtension.DebugPoint(hit.point);
-                var buildArea = hit.transform.gameObject.GetComponent<BuildGrid>();
-                cell = buildArea.GetCellByCameraDirection(ray);
+                var buildGrid = hit.transform.gameObject.GetComponent<BaseBuildGrid>();
+                cell = buildGrid.GetCellByCameraDirection(ray);
                 if (cell != null)
                     return true;
                 else

@@ -8,12 +8,12 @@ namespace BuilderGame.BuildSystem
     public class RaycastTarget : MonoBehaviour
     {
         public BuildCell Cell { private set; get; }
-        public BuildGrid Area { private set; get; }
+        public GroundGrid Area { private set; get; }
 
         private GameObject _hoverIndicator;
         private MeshRenderer _meshRenderer;
 
-        public void Initialize(BuildCell cell, BuildGrid area)
+        public void Initialize(BuildCell cell, GroundGrid area)
         {
             Cell = cell;
             Area = area;

@@ -7,8 +7,8 @@ namespace BuilderGame.BuildSystem
 
     public class BuildGridsRepository
     {
-        public BuildGrid[] Grids { private set; get; }
-        public BuildGridsRepository(BuildGrid[] grids)
+        public GroundGrid[] Grids { private set; get; }
+        public BuildGridsRepository(GroundGrid[] grids)
         {
             Grids = grids;
         }
