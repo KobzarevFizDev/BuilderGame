@@ -7,9 +7,17 @@ namespace BuilderGame.BuildSystem
     public class WallGrid : BaseBuildGrid
     {
         private enum NormalDirection { Forward, Inverse }
-        private enum WallOrientation { PlusZ, MinusZ, PlusX, MinusX }
+        public enum WallOrientation { PlusZ, MinusZ, PlusX, MinusX }
 
         [SerializeField] private NormalDirection _normalDirection;
+
+        public WallOrientation Orientation { private set; get; }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            Orientation = GetOrientation();
+        }
 
         public override BuildCell GetCellByCameraDirection(Ray ray)
         {

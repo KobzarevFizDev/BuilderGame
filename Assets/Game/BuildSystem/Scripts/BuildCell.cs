@@ -12,6 +12,7 @@ namespace BuilderGame.BuildSystem
         public int Y { private set; get; }
         public int Z { private set; get; }
         public Vector3 CenterPos { private set; get; }
+        public Vector3 Normal { private set; get; }
 
         public float Size { private set; get; }
 
@@ -22,6 +23,7 @@ namespace BuilderGame.BuildSystem
             Y = id.y;
             Z = id.z;
             CenterPos = pos;
+            Normal = normal;
             Size = size;
 
             _plane = new Plane(normal, pos - 0.5f * normal * Size);

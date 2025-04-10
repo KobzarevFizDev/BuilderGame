@@ -7,18 +7,18 @@ namespace BuilderGame.BuildSystem
 {
     public class GroundGridView : BaseGridView
     {
-        [SerializeField] private GroundGrid _buildGrid;
+        [SerializeField] private GroundGrid _grid;
 
         private void Start()
         {
-            _planes = new GridTileView[_buildGrid.XNumberCells, _buildGrid.ZNumberCells];
+            _planes = new GridTileView[_grid.XNumberCells, _grid.ZNumberCells];
 
-            for(int x = 0; x < _buildGrid.XSize; x++)
+            for(int x = 0; x < _grid.XSize; x++)
             {
-                for (int z = 0; z < _buildGrid.ZSize; z++)
+                for (int z = 0; z < _grid.ZSize; z++)
                 {
-                    int y = _buildGrid.HeightMap[x, z];
-                    BuildCell cell = _buildGrid.Cells[x, y, z];
+                    int y = _grid.HeightMap[x, z];
+                    BuildCell cell = _grid.Cells[x, y, z];
                     _planes[x, z] = _factory.Create(cell);
                 }
             }
