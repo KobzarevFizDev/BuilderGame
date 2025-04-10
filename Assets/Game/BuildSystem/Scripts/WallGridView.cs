@@ -13,6 +13,7 @@ namespace BuilderGame.BuildSystem
         private void Start()
         {
             _orientation = _grid.Orientation;
+            print($"Orientation: {_orientation}");
             CalculateWallSize(out int UNumberCells, out int VNumberCells);
             _planes = new GridTileView[UNumberCells, VNumberCells];
 

@@ -65,16 +65,16 @@ namespace BuilderGame.BuildSystem
             switch (orientation)
             {
                 case WallOrientation.PlusZ:
-                    return Vector3.forward;
+                    return Vector3.left;
 
                 case WallOrientation.MinusZ:
-                    return Vector3.back;
-
-                case WallOrientation.PlusX:
                     return Vector3.right;
 
+                case WallOrientation.PlusX:
+                    return Vector3.forward;
+
                 case WallOrientation.MinusX:
-                    return Vector3.left;
+                    return Vector3.back;
 
                 default:
                     throw new System.ArgumentException();

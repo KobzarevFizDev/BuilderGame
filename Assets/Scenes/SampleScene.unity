@@ -874,7 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _xNumberCells: 1
   _yNumberCells: 2
-  _zNumberCells: 5
+  _zNumberCells: 8
   _normalDirection: 0
 --- !u!4 &853560124
 Transform:

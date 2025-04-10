@@ -8,9 +8,13 @@ namespace BuilderGame.BuildSystem
     {
         public void SetPosition(BuildCell cell)
         {
-            transform.forward = -Vector3.up;
-            transform.position = cell.CenterPos - Vector3.up * cell.Size * 0.45f;
+            transform.forward = -cell.Normal;
+            transform.position = cell.CenterPos - cell.Normal * cell.Size * 0.45f;
             transform.localScale = Vector3.one * cell.Size;
+
+            //transform.forward = -Vector3.up;
+            //transform.position = cell.CenterPos - Vector3.up * cell.Size * 0.45f;
+            //transform.localScale = Vector3.one * cell.Size;
         }
     }
 }
